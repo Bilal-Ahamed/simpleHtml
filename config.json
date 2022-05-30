@@ -1,0 +1,54 @@
+{
+	"workflowApiVersion": "1.1",
+	"metaData": {
+		"icon": "images/icon.png",
+		"category": "message"
+	},
+	"type": "REST",
+	"lang": {
+		"en-US": {
+			"name": "Bilal FeedBack form",
+			"description": "Fill this form to test data work or not"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [{
+				"FirstName": "{{Contact.Attribute.SimpleDE.FirstName}}",
+                "email": "{{InteractionDefaults.Email}}"
+			}],
+			"outArguments": [
+                {
+                    "Post sucsses": ""
+                }
+            ],
+			"timeout": 5000,				
+			"verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+			"url": "https://simple-jbActivity.herokuapp.com/journeybuilder/execute"
+		}
+	},
+	"configurationArguments": {
+		"save": {
+			"url": "https://simple-jbActivity.herokuapp.com/save"
+		},
+		"publish": {
+			"url": "https://simple-jbActivity.herokuapp.com/publish"
+		},
+		"validate": {
+			"url": "https://simple-jbActivity.herokuapp.com/validate"
+		},
+		"stop": {
+			"url": "https://simple-jbActivity.herokuapp.com/stop"
+		}
+	},
+	"userInterfaces": {
+		"configModal": {
+			"height": 1000,
+			"width": 1200,
+			"fullscreen": false
+		}
+	}
+}
